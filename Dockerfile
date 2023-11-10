@@ -5,8 +5,9 @@ FROM ubuntu:20.04
 USER root
 
 # Install necessary dependencies
-RUN apt-get update \
-    && apt-get install -y \
+RUN apt-get update && \
+    apt-get install -y \
+        sudo \
         python3 \
         python3-pip \
     && rm -rf /var/lib/apt/lists/*
@@ -17,5 +18,5 @@ RUN pip3 install jupyterlab
 # Expose the JupyterLab port
 EXPOSE 8888
 
-# Command to run JupyterLab
+# Command to run JupyterLab as root
 CMD ["jupyter", "lab", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root"]
