@@ -14,16 +14,6 @@ RUN apt-get update \
 # Install JupyterLab
 RUN pip3 install jupyterlab
 
-# Create a non-root user (optional but recommended)
-RUN useradd -m jupyteruser
-USER jupyteruser
-
-# Set the working directory
-WORKDIR /home/jupyteruser
-
-# Copy sample notebooks (adjust as needed)
-COPY notebooks /home/jupyteruser/notebooks
-
 # Expose the JupyterLab port
 EXPOSE 8888
 
