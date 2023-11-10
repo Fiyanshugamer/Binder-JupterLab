@@ -15,8 +15,5 @@ RUN apt-get update && \
 # Install JupyterLab
 RUN pip3 install jupyterlab
 
-# Expose the JupyterLab port
-EXPOSE 8888
-
 # Command to run JupyterLab as root
-CMD ["jupyter", "lab", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root"]
+CMD ["jupyter", "notebook", "--ip", "0.0.0.0"]
